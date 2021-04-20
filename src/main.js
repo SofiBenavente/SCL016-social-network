@@ -4,15 +4,47 @@ import { myFunction } from './lib/index.js';
 
 myFunction();
 
-const buttonLogin = () => {
+const buttonLogin1 = () => {
+    let email = document.getElementById('email1').value;
+    let pass = document.getElementById('pwd1').value
 
-    const login = document.getElementById('login');
-    login.addEventListener('click', buttonLogin, false);
+//Función para crear usuarios
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .then((userCredential) => {
+        // Signed in
+        let user = userCredential.user;
+        // ...
+    })
+    .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+
+    });
 
 }
+const login = document.getElementById('login1');
+login.addEventListener('click', buttonLogin1, false);
 
 
-    /*document.getElementById('email').value;
-    document.getElementById('pwd').value;*/
-   
-  
+const buttonLogin2 = () => {
+    let email2 = document.getElementById('email2').value;
+    let pass2 = document.getElementById('pwd2').value
+
+//Función para usuarios ya registrados
+    firebase.auth().signInWithEmailAndPassword(email2, pass2)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage);
+  });
+}
+
+const login2 = document.getElementById('login2');
+login2.addEventListener('click', buttonLogin2, false);
