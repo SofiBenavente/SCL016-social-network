@@ -16,7 +16,7 @@ const buttonLogin1 = () => {
         // ...
     })
     .catch((error) => {
-        let errorCode = error.code;
+        let errorCode = error.code; 
         let errorMessage = error.message;
         alert(errorMessage);
         // ..
