@@ -24,7 +24,7 @@
   <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
+  let firebaseConfig = {
     apiKey: "AIzaSyAvJWC42D90rmyvO9dyHfzu7TjqN-gH37s",
     authDomain: "social-network-b53b0.firebaseapp.com",
     projectId: "social-network-b53b0",
@@ -42,7 +42,7 @@
             console.log(user)
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
-        var uid = user.uid;
+        let uid = user.uid;
         // ...
         } else {
             document.getElementById('log').innerHTML = "No logueado ";
@@ -50,7 +50,7 @@
         // ...
             }
         });
-  firebase.analytics();
+  firebase.analytics(); 
 </script>
 
 <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
@@ -81,6 +81,7 @@
                       <div class="sign-up-form">
                           <div class="group"> <label for="pass" class="label">Correo electrónico</label> <input id="email1" type="text" class="input" placeholder="ingresa tu correo electrónica"> </div>
                           <div class="group"> <label for="pass" class="label">Contraseña</label> <input id="pwd1" type="password" class="input" data-type="password" placeholder="Crea tu contraseña"> </div>
+                          <div class="group"> <label for="pass" class="label">Contraseña</label> <input id="pwd3" type="password" class="input" data-type="password" placeholder="Repite tu contraseña"> </div>
                           <div class="group"> <input type="submit" class="button" id="login1" value="Registrar"> </div>
                           <div class="hr"></div>
                           <div class="foot"> <label for="tab-1">Already Member?</label> </div>
