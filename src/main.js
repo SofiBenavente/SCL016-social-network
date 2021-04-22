@@ -48,3 +48,13 @@ const buttonLogin2 = () => {
 
 const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
+
+const signOut = () => {
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Salir');
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}

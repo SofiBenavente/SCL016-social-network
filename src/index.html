@@ -40,7 +40,10 @@
 
   firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            document.getElementById('log').innerHTML = "logueado " + user.email;
+            document.getElementById('log').innerHTML = 
+            `<p>logueado ${user.email} <p>
+              <button onclick="signOut()"> Cerrar Sesión</button>
+              `;
             console.log(user)
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -53,6 +56,9 @@
             }
         });
   firebase.analytics(); 
+
+  //Función para salir de la sesión
+  
 </script>
 
 <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
