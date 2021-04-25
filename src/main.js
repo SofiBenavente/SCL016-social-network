@@ -49,12 +49,34 @@ const buttonLogin2 = () => {
 const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
 
-const signOut = () => {
-  firebase.auth().signOut()
-  .then(function(){
-    console.log('Salir');
-  })
-  .catch(function(error){
-    console.log(error);
-  })
+const loginGoogle = () => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+  });
 }
+
+const googleAcc = document.getElementById('google');
+googleAcc.addEventListener('click', loginGoogle, false);
+
+
+
