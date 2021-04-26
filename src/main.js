@@ -50,8 +50,11 @@ const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
 */
 
+
 import {htmlLogin} from './lib/loginView.js'
 import {loginUser} from './lib/loginLogic.js'
+import {homeView} from './lib/homeView.js'
+
 
 const init = () => {
   //en que url estoy?
@@ -113,3 +116,4 @@ const loginGoogle = () => {
 
 const googleAcc = document.getElementById('google');
 googleAcc.addEventListener('click', loginGoogle, false);
+
