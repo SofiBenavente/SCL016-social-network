@@ -14,7 +14,7 @@ export const htmlLogin =             `<div class="login-box">
             <div class="foot"> <a href="#">Forgot Password?</a> </div>
             <div class="hr"></div>
             <div class="googleAccount">
-              <a href="#">Ingresar con cuenta de Google</a> 
+              <a id="google" href="#">Ingresar con cuenta de Google</a> 
             </div>
             <input type="image" id="google_icon" src="./img/gogle1.png">
         </div>
