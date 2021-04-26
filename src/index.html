@@ -40,7 +40,11 @@
 
   firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-            document.getElementById('log').innerHTML = "logueado " + user.email;
+          if(user.emailVerified === false)
+            document.getElementById('log').innerHTML = 
+            `<p>logueado ${user.email} <p>
+              <button onclick="signOut()"> Cerrar Sesión</button>
+              `;
             console.log(user)
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
@@ -53,6 +57,19 @@
             }
         });
   firebase.analytics(); 
+//Botón cerrar sesión
+  const signOut = () => {
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Salir');
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+}
+
+  //Función para salir de la sesión
+  
 </script>
 
 <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
@@ -77,7 +94,7 @@
                           <div class="foot"> <a href="#">¿Olvidaste tu contraseña?</a> </div>
                           <div class="hr"></div>
                           <div class="googleAccount">
-                            <a href="#">Ingresar con cuenta de Google</a> 
+                            <a id="google" href="#">Ingresar con cuenta de Google</a> 
                           </div>
                           <input type="image" id="google_icon" src="./img/gogle1.png">
                       </div>
@@ -97,46 +114,7 @@
   </div>
 </div>
 
-<!---------------------------------------------------------<FIREBASE GOOGLE>
-  var provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth()
-    .signInWithPopup(provider)
-    .then((result) => {
-      /** @type {firebase.auth.OAuthCredential} */
-      var credential = result.credential;
-
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-    }).catch((error) => {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-  });
-</script> -->
-  <!--Área de registro-->
-  <!--<h1>Registrate</h1>
-  <label for="email">Enter your email:</label>
-  <input type="email" id="email1" name="email1">
-  <label for="pwd">Password:</label>
-  <input type="password" id="pwd1" name="pwd">
-  <button name="login" type="button" id="login1">Registrar</button>-->
-
-  <!--Área de Ingreso--
-  <h1>Ingresa con tu correo</h1>
-  <label for="email">Enter your email:</label>
-  <input type="email" id="email2" name="email2">
-  <label for="pwd">Password:</label>
-  <input type="password" id="pwd2" name="pwd">
-  <button name="login" type="button" id="login2">Entrar</button>-->
   <h1 id="log"></h1> </h1>
 
 
