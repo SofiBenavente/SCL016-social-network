@@ -52,7 +52,7 @@ login2.addEventListener('click', buttonLogin2, false);
 
 import {htmlLogin} from './lib/loginView.js'
 import {loginUser} from './lib/loginLogic.js'
-//import {homeView} from './lib/homeView.js'
+import {homeView} from './lib/homeView.js'
 
 
 const init = () => {
@@ -117,3 +117,21 @@ googleAcc.addEventListener('click', loginGoogle, false);
 
 
 
+
+const homeInit = () => {
+  //en que url estoy?
+  //estoy en home? pinto home
+  //estoy en login? pinto login
+  let url = window.location.hash;
+  console.log(url);
+  switch(url){
+    case '':
+    case '#/home':
+      //pintar login
+      document.querySelector('.home').innerHTML = homeView;
+
+      break;  
+  }
+}
+
+homeInit();
