@@ -50,9 +50,13 @@ const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
 */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 615f21fe6602d6e71348e002e48f7c2d2bc72749
 import {htmlLogin} from './lib/loginView.js'
 import {loginUser} from './lib/loginLogic.js'
-import {homeView} from './lib/homeView.js'
+//nimport {homeView} from './lib/homeView.js'
 
 
 const init = () => {
@@ -86,6 +90,10 @@ const init = () => {
 }
 
 init();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 615f21fe6602d6e71348e002e48f7c2d2bc72749
 const loginGoogle = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -115,6 +123,7 @@ const loginGoogle = () => {
 const googleAcc = document.getElementById('google');
 googleAcc.addEventListener('click', loginGoogle, false);
 
+<<<<<<< HEAD
 
 
 
@@ -135,3 +144,6 @@ const homeInit = () => {
 }
 
 homeInit();
+=======
+//holi
+>>>>>>> 615f21fe6602d6e71348e002e48f7c2d2bc72749
