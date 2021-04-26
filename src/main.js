@@ -50,10 +50,9 @@ const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
 */
 
-<<<<<<< HEAD
 import {htmlLogin} from './lib/loginView.js'
 import {loginUser} from './lib/loginLogic.js'
-import {homeView} from './lib/homeView.js'
+//import {homeView} from './lib/homeView.js'
 
 
 const init = () => {
@@ -87,7 +86,6 @@ const init = () => {
 }
 
 init();
-=======
 const loginGoogle = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -119,4 +117,3 @@ googleAcc.addEventListener('click', loginGoogle, false);
 
 
 
->>>>>>> 1f1fd1301fa49819da8dd846bd88156e5dcafcd6
