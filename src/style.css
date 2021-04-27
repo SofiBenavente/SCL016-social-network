@@ -4,6 +4,7 @@ body {
     margin: 0;
     color: #548590;
     background: #c8c8c8;
+    background-image: url("./img/fondo.jpg");
     font: 600 16px/18px 'ABeeZee', sans-serif;
 }
 
@@ -259,3 +260,39 @@ a {
     background: #aaa;
   }
 
+  .jumbotron {
+      background-color: black;
+      height: 48px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: space-between;
+      justify-content: center;
+  }
+  
+
+  h1{
+    font-family: Showcard Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 19px;
+    text-align-last: left;
+    
+    color: #FDFDFD;
+  }
+
+  #ghostHome {
+    height: 58px;
+  }
+
+  .container{
+      background-color: #000000db; /* le da transparencia y asi no tengo que utilizar el opacity */
+      padding-top: 20px;
+  }
+
+  #navbar.navbar-expand-sm.bg-dark.navbar-dark{
+    background: #D8CEF3;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+  }

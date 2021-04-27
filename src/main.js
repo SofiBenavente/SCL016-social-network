@@ -50,10 +50,9 @@ const login2 = document.getElementById('login2');
 login2.addEventListener('click', buttonLogin2, false);
 */
 
-
 import {htmlLogin} from './lib/loginView.js'
 import {loginUser} from './lib/loginLogic.js'
-import {homeView} from './lib/homeView.js'
+//nimport {homeView} from './lib/homeView.js'
 
 
 const init = () => {
@@ -87,7 +86,6 @@ const init = () => {
 }
 
 init();
-
 const loginGoogle = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -117,4 +115,23 @@ const loginGoogle = () => {
 const googleAcc = document.getElementById('google');
 googleAcc.addEventListener('click', loginGoogle, false);
 
-//holi
+
+
+
+const homeInit = () => {
+  //en que url estoy?
+  //estoy en home? pinto home
+  //estoy en login? pinto login
+  let url = window.location.hash;
+  console.log(url);
+  switch(url){
+    case '':
+    case '#/home':
+      //pintar login
+      document.querySelector('.home').innerHTML = homeView;
+
+      break;  
+  }
+}
+
+homeInit();
