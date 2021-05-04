@@ -3,7 +3,7 @@ export const loginUser = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
-export const createUser =  (email, pass) =>{
+export const createUser = (email, pass) => {
     console.log(email, pass);
     return firebase.auth().createUserWithEmailAndPassword(email, pass);
 }

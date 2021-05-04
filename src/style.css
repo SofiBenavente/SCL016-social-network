@@ -255,16 +255,10 @@ a {
 
 /*------------------------------------------BOOSTRAP HOME -------------------------------*/
 
-.fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-
   .jumbotron {
       background-color: black;
       height: 48px;
       display: flex;
-      flex-direction: column;
       flex-wrap: wrap;
       align-content: space-between;
       justify-content: center;
@@ -291,8 +285,24 @@ a {
       padding-top: 20px;
   }
 
-  #navbar.navbar-expand-sm.bg-dark.navbar-dark{
+  #navBar{
     background: #D8CEF3;
     border: 1px solid #000000;
-    box-sizing: border-box;
+    box-sizing: border-box
   }
+
+  ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    
+}
+
+li{
+    display: inline;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: -5%;
+    box-sizing: border-box;
+    padding: auto 150px auto 15px;
+}
