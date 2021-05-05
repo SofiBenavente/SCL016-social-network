@@ -255,21 +255,18 @@ a {
 
 /*------------------------------------------BOOSTRAP HOME -------------------------------*/
 
-.fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
-
   .jumbotron {
       background-color: black;
       height: 48px;
-      display: flex;
-      flex-direction: column;
+      /*display: flex;
       flex-wrap: wrap;
       align-content: space-between;
-      justify-content: center;
+      justify-content: center;*/
   }
-  
+  #logo {
+    display: flex;
+    justify-content: space-between;
+  }
 
   h1{
     font-family: Showcard Gothic;
@@ -278,12 +275,14 @@ a {
     font-size: 15px;
     line-height: 19px;
     text-align-last: left;
-    
+    padding-left: 20px;    
     color: #FDFDFD;
   }
 
   #ghostHome {
     height: 58px;
+    margin: -13px 0;
+    padding-right: 20px; 
   }
 
   .container{
@@ -291,8 +290,32 @@ a {
       padding-top: 20px;
   }
 
-  #navbar.navbar-expand-sm.bg-dark.navbar-dark{
+  #navBar{
     background: #D8CEF3;
     border: 1px solid #000000;
     box-sizing: border-box;
+    padding-top: 1%;
+    
   }
+
+  ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    
+}
+
+li{
+    display: inline;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-top: -5%;
+    box-sizing: border-box;
+    padding: auto 150px auto 15px;
+}
+
+.hr1 {
+    height: 5px;
+    margin: 60px 0 50px 0;
+    background: rgba(255, 255, 255, .2)
+}

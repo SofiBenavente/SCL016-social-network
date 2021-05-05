@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title> ParaSocial 👻</title>
 </head>
+
 <body>
-<!-------------------------------------------FIREBASE------------------------------------------------>
+  <!-------------------------------------------FIREBASE------------------------------------------------>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 
-  <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  let firebaseConfig = {
-    apiKey: "AIzaSyAvJWC42D90rmyvO9dyHfzu7TjqN-gH37s",
-    authDomain: "social-network-b53b0.firebaseapp.com",
-    projectId: "social-network-b53b0",
-    storageBucket: "social-network-b53b0.appspot.com",
-    messagingSenderId: "1026604386993",
-    appId: "1:1026604386993:web:c5988c4c09245f85ff3090",
-    measurementId: "G-LCG5EQV5YR"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
-  firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          if(user.emailVerified === false)
-            document.getElementById('log').innerHTML = 
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+    let firebaseConfig = {
+      apiKey: "AIzaSyAvJWC42D90rmyvO9dyHfzu7TjqN-gH37s",
+      authDomain: "social-network-b53b0.firebaseapp.com",
+      projectId: "social-network-b53b0",
+      storageBucket: "social-network-b53b0.appspot.com",
+      messagingSenderId: "1026604386993",
+      appId: "1:1026604386993:web:c5988c4c09245f85ff3090",
+      measurementId: "G-LCG5EQV5YR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        if (user.emailVerified === false)
+          document.getElementById('log').innerHTML =
             `<p>logueado ${user.email} <p>
               <button onclick="signOut()"> Cerrar Sesión</button>
               `;
-            console.log(user)
+        console.log(user)
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         let uid = user.uid;
         // ...
-        } else {
-            document.getElementById('log').innerHTML = "No logueado ";
+      } else {
+        document.getElementById('log').innerHTML = "No logueado ";
         // User is signed out
         // ...
-            }
-        });
-  firebase.analytics(); 
-//Botón cerrar sesión
-  const signOut = () => {
-  firebase.auth().signOut()
-  .then(function(){
-    console.log('Salir');
-  })
-  .catch(function(error){
-    console.log(error);
-  })
-}
+      }
+    });
+    firebase.analytics();
+    //Botón cerrar sesión
+    const signOut = () => {
+      firebase.auth().signOut()
+        .then(function () {
+          console.log('Salir');
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
   //Función para salir de la sesión
-  
-</script>
 
-<!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
-<div class="loginstyle"></div>
-    
-<div class="home" id="home"></div>
+  </script>
 
-  <h1 id="log"></h1> </h1>
+  <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
+
+  <div class="row">
+    <div class="col-md-6 mx-auto p-0">
+      <div class="card">
+
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+
+  <div class="home" id="home"></div>
+
+  <h1 id="log"></h1>
+  </h1>
 
   <script type="module" src="main.js"></script>
 </body>
-</html>
 
+</html>
