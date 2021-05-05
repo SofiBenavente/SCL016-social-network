@@ -3,7 +3,7 @@
 body {
     margin: 0;
     color: #548590;
-    background: #c8c8c8;
+    background: #000000db;
     background-image: url("./img/fondo.jpg");
     font: 600 16px/18px 'ABeeZee', sans-serif;
 }
@@ -258,12 +258,13 @@ a {
   .jumbotron {
       background-color: black;
       height: 48px;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: space-between;
-      justify-content: center;
   }
   
+  #logo {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+  }
 
   h1{
     font-family: Showcard Gothic;
@@ -271,13 +272,16 @@ a {
     font-weight: normal;
     font-size: 15px;
     line-height: 19px;
-    text-align-last: left;
+    padding-left: 20px;
     
     color: #FDFDFD;
   }
 
   #ghostHome {
     height: 58px;
+    margin: -13px 0;
+    padding-right: 20px;
+
   }
 
   .container{
@@ -288,14 +292,16 @@ a {
   #navBar{
     background: #D8CEF3;
     border: 1px solid #000000;
-    box-sizing: border-box
+    box-sizing: border-box;
   }
 
   ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
-    
+    padding-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 3px;
 }
 
 li{
@@ -305,4 +311,27 @@ li{
     margin-top: -5%;
     box-sizing: border-box;
     padding: auto 150px auto 15px;
+}
+
+#description {
+    margin-top: 50px;
+    width: 90%;
+    height: 146px;
+    resize: none;
+}
+
+#post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hr1 {
+    height: 5px;
+    background-color: darkgray;
+    margin-top: 30px;
+}
+
+.homeBackground {
+    background:linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url('./img/fondo.jpg');
 }

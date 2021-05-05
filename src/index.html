@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
@@ -13,7 +12,7 @@
   <title>ParaSocial</title>
 </head>
 
-<body>
+<body class="homeBackground">
   <!-------------------------------------------FIREBASE------------------------------------------------>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -42,28 +41,7 @@
       appId: "1:1026604386993:web:c5988c4c09245f85ff3090",
       measurementId: "G-LCG5EQV5YR"
     };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        if (user.emailVerified === false)
-          document.getElementById('log').innerHTML =
-            `<p>logueado ${user.email} <p>
-              <button onclick="signOut()"> Cerrar Sesión</button>
-              `;
-        console.log(user)
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        let uid = user.uid;
-        // ...
-      } else {
-        document.getElementById('log').innerHTML = "No logueado ";
-        // User is signed out
-        // ...
-      }
-    });
-    firebase.analytics();
+    
     //Botón cerrar sesión
     const signOut = () => {
       firebase.auth().signOut()
@@ -74,9 +52,6 @@
           console.log(error);
         })
     }
-
-  //Función para salir de la sesión
-
   </script>
 
   <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
