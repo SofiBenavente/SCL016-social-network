@@ -1,9 +1,10 @@
+const db = firebase.firestore();
 export const homeLogic = async (description) => {
-    const db = firebase.firestore();
+    
 
-    const response = await db.collection('comments').doc().set({
+    await db.collection('comments').doc().set({
         description
     });
-    console.log("response", response);
-
 };
+
+export const getComments = () => db.collection('comments').get();

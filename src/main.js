@@ -2,6 +2,7 @@
 import { htmlLogin } from './lib/loginView.js'
 import { loginUser, createUser } from './lib/loginLogic.js'
 import { homeView } from './lib/homeView.js';
+import { getComments } from './lib/homeLogic.js';
 //import {createUser} from './createUser.js'
 //import {htmlRegister} from './lib/createUserView.js'
 //import {homeView} from './lib/homeView.js'
@@ -23,6 +24,18 @@ const init = () => {
       break;
     case '#/home':
       document.querySelector('.home').appendChild(homeView());
+      window.addEventListener('DOMContentLoaded', async (e) =>{
+        const postContainer = document.getElementById('post-container');
+        const querySnapshot = await getComments();
+        querySnapshot.forEach(doc => {
+          console.log(doc.data());
+          postContainer.innerHTML += `<p class="homeComments">
+          ${doc.data().description}
+          </p>
+          <button class"delete">Borrar</button>`
+        });
+        
+      })
       break;
   };
 }
