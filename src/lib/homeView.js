@@ -1,4 +1,5 @@
-import { homeLogic, getComments } from './homeLogic.js'
+import { homeLogic} from './homeLogic.js'
+import { updateComment} from './homeLogic.js'
 export const homeView = () => { /*html*/
 
   const divHome = document.createElement('div');
@@ -27,29 +28,56 @@ export const homeView = () => { /*html*/
 
   <form id="task-form">
     <div id="post">
-      <textarea id="description" rows="3" class="text-area" placeholder="Description"></textarea>
+      <input type="text" id="task-title" class="form-control" placeholder="Task tile">
+      <textarea id="description" rows="3" class="text-area" placeholder="Título\nHistoria"></textarea>
       <button class="saveComment" id="saveComment" type="submit">Guardar</button>
     </div>
     <div class="hr1"></div>
     <div id= "post-container" class="postContainer"></div>
   </form>
   <button onclick="signOut()"> Cerrar Sesión</button>
-  <div class="jumbotron text-center" style="margin-bottom:0">
+  <div class="jumbotronFooter" style="margin-bottom:0">
     <p>Footer</p>
   </div>
   </div>`;
   
-  
+//Se llama al evento submit para guardar o actualizar el valor del formulario
   const taskForm = divHome.querySelector('#task-form');
   taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const isEditing = getCookie('isEditing');
 
+    const title = taskForm['title'].value;
     const description = taskForm['description'].value;
-    console.log("descripcion",description);
-    await homeLogic(description);
+
+//Se da una condición para llamar a la
+    if (isEditing == 'true') {
+      const id = getCookie('idComment');
+      await updateComment(id, description);
+    } else {
+      await homeLogic(description);
+    }
+    
+    document.cookie = "isEditing=false";
 
     taskForm.reset();
   });
 
   return divHome;
+}
+// Función para obtener una cookie del browser
+const getCookie = (cname) => {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
