@@ -27,7 +27,7 @@ El usuario al cuál va dirigido nuestro proyecto, comprende dentro del rango de 
 
 En primer lugar, este proyecto fue diseñado en un prototipo de baja fidelidad por las integrantes del equipo de Parasocial, juntando las ideas y creando una encuesta para saber las caracteristicas y necesidades mínimas que debia cumplir el usuario. 
 
-![Propotipo de baja fidelidad](src/img/Prototipo_de_baja_fidelidad.png)
+![Propotipo de baja fidelidad](src/img/PrototipoB.png) 
 
 En el siguiente link podrás encontrar el prototipo de alta fidelidad del proyecto en forma digital, el cual se basó en las necesidades del usuario al momento de realizar las encuestas y entrevistas pertinentes.
 
