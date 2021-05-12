@@ -1,46 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" media="(max-width: 1920px)" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+  <title>ParaSocial 👻</title>
 </head>
-<body>
+
+<body class="homeBackground">
+  <!-------------------------------------------FIREBASE------------------------------------------------>
+
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 
+
   <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyAvJWC42D90rmyvO9dyHfzu7TjqN-gH37s",
-    authDomain: "social-network-b53b0.firebaseapp.com",
-    projectId: "social-network-b53b0",
-    storageBucket: "social-network-b53b0.appspot.com",
-    messagingSenderId: "1026604386993",
-    appId: "1:1026604386993:web:c5988c4c09245f85ff3090",
-    measurementId: "G-LCG5EQV5YR"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-</script>
+ 
+    // configuración del proyecto.
+    let firebaseConfig = {
+      apiKey: "AIzaSyAvJWC42D90rmyvO9dyHfzu7TjqN-gH37s",
+      authDomain: "social-network-b53b0.firebaseapp.com",
+      projectId: "social-network-b53b0",
+      storageBucket: "social-network-b53b0.appspot.com",
+      messagingSenderId: "1026604386993",
+      appId: "1:1026604386993:web:c5988c4c09245f85ff3090",
+      measurementId: "G-LCG5EQV5YR"
+    };
 
-  <label for="email">Enter your email:</label>
-  <input type="email" id="email" name="email">
+// Initialize Firebase
+ firebase.initializeApp(firebaseConfig);
 
-  <label for="pwd">Password:</label>
-  <input type="password" id="pwd" name="pwd">
-  <button name="login" type="button" id="login()">Entrar</button>
+//Autenticación con Firebase
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    if (user.emailVerified === false)
+      document.getElementById('log').innerHTML =
+        `<p>logueado ${user.email} <p>
+          `;
+          
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    let uid = user.uid;
+    // ...
+  } else {
+    document.getElementById('log').innerHTML = "No logueado ";
+    // User is signed out
+    // ...
+  }
+});
+firebase.analytics();
+    
+    //Botón cerrar sesión
+    const signOut = () => {
+      location.replace("http://localhost:5000/#/login");
+        location.reload();
+      
+        firebase.auth().signOut()
+        .then(function () {
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+  </script>
 
+  <!-------------------------------------------------BOOSTRAPT LOGIN & SINGUP-------------------------------------->
 
+  <div class="row">
+    <div class="col-md-6 mx-auto p-0">
+      <div class="card">
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="home" id="home"></div>
+  <h1 id="log"></h1>
+  
   <script type="module" src="main.js"></script>
 </body>
-</html>
 
+</html>
