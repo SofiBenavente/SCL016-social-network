@@ -71,7 +71,10 @@ firebase.analytics();
     
     //Botón cerrar sesión
     const signOut = () => {
-      firebase.auth().signOut()
+      location.replace("http://localhost:5000/#/login");
+        location.reload();
+      
+        firebase.auth().signOut()
         .then(function () {
         })
         .catch(function (error) {
