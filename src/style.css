@@ -8,26 +8,32 @@ body {
     font: 600 16px/18px 'ABeeZee', sans-serif;
 }
 
+.loginStyle {
+    margin: auto;
+    left: 100px
+}
+
 
 .login-box {
     width: 100%;
-    margin: auto;
     max-width: 525px;
     min-height: 670px;
     position: relative;
-    background: url(./img/fondo.jpg) no-repeat center;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+    margin: auto;
+    
 }
 
 .login-snip {
     width: 100%;
-    height: 100%;
     position: absolute;
     padding: 50px 70px 50px 70px;
     background: rgb(0 0 0 / 90%);
 }
 
 .login-snip h1 {
+    display: flex;
+    justify-content: center;
     font-family: Showcard Gothic;
     text-align: center;
     font-style: normal;
@@ -40,10 +46,9 @@ body {
 
 #ghost{
     position: absolute;
-    width: 105px;
     height: 90px;
-    right: 65px;
-    top: 30px;
+    right: 60px;
+    top: 20px;
 
 }
 
@@ -56,6 +61,7 @@ body {
     text-align: center;
     color: #FDFDFD;
     margin-bottom: 10%;
+    margin-top: 5%;
 }
 
 .login-snip .login,
@@ -99,8 +105,8 @@ body {
 
 #google_icon {
     width: 40px;
-    right: 50px;
-    top: 330px;
+    right: 35px;
+    top: 285px;
     position: absolute;
 }
 
@@ -108,6 +114,7 @@ body {
     width: 300px;
     margin: auto;
     height: 60px;
+    margin-top: 8%;
 
 }
 
@@ -235,7 +242,7 @@ a {
 
 .hr {
     height: 2px;
-    margin: 60px 0 50px 0;
+    margin: 30px 0 0px 0;
     background: rgba(255, 255, 255, .2)
 }
 
@@ -245,8 +252,6 @@ a {
 
 .card {
     margin: auto;
-    width: 500px;
-    left: 100px
 }
 
 ::placeholder {
@@ -258,6 +263,15 @@ a {
   .jumbotron {
       background-color: black;
       height: 48px;
+  }
+
+  .jumbotronFooter {
+    background-color: black;
+    height: 48px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
   }
   
   #logo {
@@ -285,7 +299,7 @@ a {
   }
 
   .container{
-      background-color: #000000db; /* le da transparencia y asi no tengo que utilizar el opacity */
+      background-color: #000000db;
       padding-top: 20px;
   }
 
@@ -299,9 +313,15 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-left: -50px;
     padding-top: 5px;
     margin-bottom: 5px;
-    padding-left: 3px;
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
 }
 
 li{
@@ -318,21 +338,84 @@ li{
     width: 90%;
     height: 146px;
     resize: none;
+    padding: 10px;
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #494545;
+
 }
 
 #post {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    margin-right: 10%;
 }
 
 .hr1 {
-    height: 5px;
-    background-color: darkgray;
-    margin-top: 30px;
+    border: 3px solid #423D3D;
+    margin-top: 20px;
 }
 
 .homeBackground {
     background:linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url('./img/fondo.jpg');
 }
 
+.saveComment {
+    background: #CFD7F3;
+    border: 1px solid #3A3838;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    margin-top: 15px;
+}
+
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.homeComments {
+    color: #000000;
+    background-color: beige;
+    margin-top: 50px;
+    width: 82%;
+    resize: none;
+    padding: 10px;
+    font-family: Abel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    color: #494545;
+    white-space: break-spaces;
+    overflow: auto;
+}
+
+.delete{
+    background: #CFD7F3;
+    border: 1px solid #3A3838;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    margin-top: 15px;
+}
+
+.edit {
+    background: #CFD7F3;
+    border: 1px solid #3A3838;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+    margin-top: 15px;
+}
