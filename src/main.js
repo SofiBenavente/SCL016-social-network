@@ -1,50 +1,76 @@
 // Este es el punto de entrada de tu aplicacion
+import { htmlLogin } from './lib/loginView.js'
+import { homeView } from './lib/homeView.js';
+import { onGetComments, deleteComment, getComment } from './lib/homeLogic.js';
 
-import { myFunction } from './lib/index.js';
 
-myFunction();
+const init = () => {
+  //en que url estoy?
+  //estoy en home? pinto home
+  //estoy en login? pinto login
+  let url = window.location.hash;
+  switch (url) {
+    case '':
+    case '#/login':
+      //pintar login
+      document.cookie = "isEditing=false";
+      document.querySelector('.card').innerHTML = '';
+      document.querySelector('.card').appendChild(htmlLogin());
+      break;
+    case '#/home':
+      document.querySelector('.home').appendChild(homeView());
 
-const buttonLogin1 = () => {
-    let email = document.getElementById('email1').value;
-    let pass = document.getElementById('pwd1').value
+      window.addEventListener('DOMContentLoaded', (e) =>{
+        const postContainer = document.getElementById('post-container');
 
-//Función para crear usuarios
-    firebase.auth().createUserWithEmailAndPassword(email, pass)
-    .then((userCredential) => {
-        // Signed in
-        let user = userCredential.user;
-        // ...
-    })
-    .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        alert(errorMessage);
-        // ..
+        onGetComments((querySnapshot) =>{
+          postContainer.innerHTML = '';
+          querySnapshot.forEach(doc => {
 
-    });
+            const task = doc.data();
+            task.id = doc.id;
 
+            postContainer.innerHTML += `<div class="homeComments">
+            ${doc.data().description}
+            </div>
+            <div= "editAndDeleteBtn">
+            <button class="delete" data-id= "${task.id}">Borrar</button>
+            <button class="edit" data-id ="${task.id}">Editar</button>
+            </div>`;
+
+            const deleteBtn = document.querySelectorAll('.delete');
+            deleteBtn.forEach(btn => {
+              btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await deleteComment(e.target.dataset.id);
+
+              });
+            });
+
+            const editBtn = document.querySelectorAll('.edit');
+            editBtn.forEach(btn => {
+              btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const doc = await getComment(e.target.dataset.id);
+                const task = doc.data();
+
+//Función donde se almacena una marca para ejecutar la condición del submit
+                document.cookie = "isEditing=true";
+                document.cookie= `idComment=${e.target.dataset.id}`;
+
+                const taskForm = document.getElementById("task-form")
+                  taskForm['description'].value = task.description
+              });
+            });
+
+
+          });
+
+        });
+      });
+      break;
+  };
 }
-const login = document.getElementById('login1');
-login.addEventListener('click', buttonLogin1, false);
 
+init();
 
-const buttonLogin2 = () => {
-    let email2 = document.getElementById('email2').value;
-    let pass2 = document.getElementById('pwd2').value
-
-//Función para usuarios ya registrados
-    firebase.auth().signInWithEmailAndPassword(email2, pass2)
-  .then((userCredential) => {
-    // Signed in
-    let user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    alert(errorMessage);
-  });
-}
-
-const login2 = document.getElementById('login2');
-login2.addEventListener('click', buttonLogin2, false);
