@@ -24,8 +24,6 @@ export const homeView = () => { /*html*/
       </div>
     </nav>
   </section>
-
-
   <form id="task-form">
     <div id="post">
       <input type="text" id="task-title" class="form-control" placeholder="Task tile">
