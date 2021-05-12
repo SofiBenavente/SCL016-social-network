@@ -28,7 +28,7 @@ export const homeView = () => { /*html*/
 
   <form id="task-form">
     <div id="post">
-      <input type="text" id="task-title" class="form-control" placeholder="Task tile">
+ 
       <textarea id="description" rows="3" class="text-area" placeholder="Título\nHistoria"></textarea>
       <button class="saveComment" id="saveComment" type="submit">Guardar</button>
     </div>
@@ -37,7 +37,7 @@ export const homeView = () => { /*html*/
   </form>
   <button onclick="signOut()"> Cerrar Sesión</button>
   <div class="jumbotronFooter" style="margin-bottom:0">
-    <p>Footer</p>
+    <p>ParaSocial 2021 Todos los Derechos Reservados ©.</p>
   </div>
   </div>`;
   
@@ -47,7 +47,6 @@ export const homeView = () => { /*html*/
     e.preventDefault();
     const isEditing = getCookie('isEditing');
 
-    const title = taskForm['title'].value;
     const description = taskForm['description'].value;
 
 //Se da una condición para llamar a la

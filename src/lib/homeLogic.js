@@ -6,7 +6,7 @@ export const homeLogic = async (description) => {
     console.log('paso de crear');
 };
 
-export const getComments = () => db.collection('comments').get();
+//export const getComments = () => db.collection('comments').get();
 
 export const onGetComments = (callback) => db.collection('comments').onSnapshot(callback);
 
