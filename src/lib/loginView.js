@@ -3,11 +3,7 @@ export const htmlLogin = () => {
 
   const div = document.createElement('div');
   div.classList.add('login-box');
-  div.innerHTML = `
-  <div class="row">
-    <div class="col-md-6 mx-auto p-0">
-      <div class="card">
-  <div class="login-snip">
+  div.innerHTML = `<div class="login-snip">
   <h1>PARASOCIAL</h1>
   <img id="ghost" src="./img/pngegg.png">
   <p>
@@ -33,10 +29,7 @@ export const htmlLogin = () => {
             <div class="group"> <input type="submit" class="button" id="registerButton" value="Registrar"> </div>
             <div class="hr"></div>
             <div class="foot"> <label for="tab-1">Already Member?</label> </div>
-                </div>
-              </div>
-           </div>
-         </div>
+        </div>
     </div>
 </div>`
 //Evento botón de google
@@ -113,6 +106,3 @@ const loginGoogle = () => {
       // ...
     });
 }
-
-
-
