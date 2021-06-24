@@ -45,7 +45,7 @@ Podrás encontrar la página directamente desde estos enlaces:
 * [Proyecto Daniela V](https://github.com/Danipaz1/SCL016-social-network).
 * [Proyecto Sofia B](https://github.com/SofiBenavente/SCL016-social-network).
 
-O bien, en el siguiente link directo: [ParaSocial](https://github.com/CarolinaMorales1992/SCL016-social-network).
+O bien, en el siguiente link directo: [ParaSocial](https://carolinamorales1992.github.io/SCL016-social-network/src/index.html).
 
 ## 6. Herramientas que se utilizaron para realizar el proyecto
 
